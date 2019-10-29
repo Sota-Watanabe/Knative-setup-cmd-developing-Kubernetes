@@ -25,6 +25,15 @@ cluster/kubectl.sh apply -f ~/study/download/istio-1.1.7/istio-local-gateway.yam
 cluster/kubectl.sh apply --selector knative.dev/crd-install=true --filename https://github.com/knative/serving/releases/download/v0.9.0/serving.yaml
 
 cluster/kubectl.sh apply --filename https://github.com/knative/serving/releases/download/v0.9.0/serving.yaml  
+  
+  
+cluster/kubectl.sh apply -f ~/study/test-deploy/go/helloworld-go/service.yaml  
 
+if  cluster/kubectl.sh get configmap config-istio -n knative-serving &> /dev/null; then
+       INGRESSGATEWAY=istio-ingressgateway
+fi
 
+export IP_ADDRESS=$(cluster/kubectl.sh get node  --output 'jsonpath={.items[0].status.addresses[0].address}'):$(cluster/kubectl.sh get svc $INGRESSGATEWAY --namespace istio-system   --output 'jsonpath={.spec.ports[?(@.port==80)].nodePort}')
+
+curl -H "Host: helloworld-go.default.example.com" http://${IP_ADDRESS} -v -w "%{time_total}" 
 ```
