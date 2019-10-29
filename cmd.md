@@ -16,11 +16,11 @@ cat <<EOF | cluster/kubectl.sh apply -f -
        istio-injection: disabled
 EOF
 
-cluster/kubectl.sh apply -f istio-lean.yaml
+cluster/kubectl.sh apply -f ~/study/download/istio-1.1.7/istio-lean.yaml
 
 cluster/kubectl.sh taint nodes --all node-role.kubernetes.io/master-
 
-cluster/kubectl.sh apply -f istio-local-gateway.yaml
+cluster/kubectl.sh apply -f ~/study/download/istio-1.1.7/istio-local-gateway.yaml
 
 cluster/kubectl.sh apply --selector knative.dev/crd-install=true --filename https://github.com/knative/serving/releases/download/v0.9.0/serving.yaml
 
