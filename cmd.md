@@ -1,4 +1,4 @@
-
+```
 cd ~/go/src/kubernetes-v1.15.5/
 
 cluster/kubectl.sh taint nodes --all node-role.kubernetes.io/master-
@@ -25,3 +25,4 @@ cluster/kubectl.sh apply -f istio-local-gateway.yaml
 cluster/kubectl.sh apply --selector knative.dev/crd-install=true --filename https://github.com/knative/serving/releases/download/v0.9.0/serving.yaml
 
 cluster/kubectl.sh apply --filename https://github.com/knative/serving/releases/download/v0.9.0/serving.yaml 
+```
