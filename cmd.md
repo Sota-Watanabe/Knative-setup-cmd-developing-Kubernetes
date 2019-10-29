@@ -25,4 +25,5 @@ cluster/kubectl.sh apply -f ~/study/download/istio-1.1.7/istio-local-gateway.yam
 cluster/kubectl.sh apply --selector knative.dev/crd-install=true --filename https://github.com/knative/serving/releases/download/v0.9.0/serving.yaml
 
 cluster/kubectl.sh apply --filename https://github.com/knative/serving/releases/download/v0.9.0/serving.yaml 
+
 ```
