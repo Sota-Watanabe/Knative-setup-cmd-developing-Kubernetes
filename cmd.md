@@ -35,5 +35,7 @@ fi
 
 export IP_ADDRESS=$(cluster/kubectl.sh get node  --output 'jsonpath={.items[0].status.addresses[0].address}'):$(cluster/kubectl.sh get svc $INGRESSGATEWAY --namespace istio-system   --output 'jsonpath={.spec.ports[?(@.port==80)].nodePort}')
 
-curl -H "Host: helloworld-go.default.example.com" http://${IP_ADDRESS} -v -w "%{time_total}" 
+curl -H "Host: helloworld-go.default.example.com" http://${IP_ADDRESS} -v -w "%{time_total}"   
+  
+  
 ```
