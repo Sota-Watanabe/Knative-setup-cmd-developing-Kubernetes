@@ -1,3 +1,4 @@
+```
 
 cd ~/go/src/kubernetes-v1.15.5/
 
@@ -41,3 +42,4 @@ export IP_ADDRESS=$(cluster/kubectl.sh get node  --output 'jsonpath={.items[0].s
 
 curl -H "Host: helloworld-go.default.example.com" http://${IP_ADDRESS} -v -w "%{time_total}"   
 
+```
