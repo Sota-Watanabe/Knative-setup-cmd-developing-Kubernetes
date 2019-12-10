@@ -1,7 +1,5 @@
 ```
 
-cd ~/go/src/kubernetes-v1.15.5/
-
 export KUBECONFIG=/var/run/kubernetes/admin.kubeconfig
 
 cluster/kubectl.sh taint nodes --all node-role.kubernetes.io/master-
